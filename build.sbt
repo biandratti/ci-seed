@@ -6,7 +6,12 @@ lazy val commonSettings = Seq(
   wartremoverErrors ++= Warts.unsafe.diff(Seq(Wart.Any)),
   coverageFailOnMinimum := true,
   coverageMinimumStmtTotal := 100,
-  coverageMinimumBranchTotal := 100
+  coverageMinimumBranchTotal := 100,
+  semanticdbEnabled := true,
+  semanticdbVersion := scalafixSemanticdb.revision,
+  scalacOptions ++= List(
+    "-Wunused"
+  )
 )
 
 lazy val queue =
@@ -23,6 +28,10 @@ lazy val queue =
     )
 
 addCommandAlias("checkFormat", ";scalafmtSbtCheck ;scalafmtCheckAll")
-addCommandAlias("lint", ";compile ;scapegoat")
+addCommandAlias("scapegoatLint", ";compile ;scapegoat")
+addCommandAlias("scalafixLint", ";compile ;scalafix")
 addCommandAlias("testCoverage", ";coverage ;test ;coverageAggregate")
-addCommandAlias("verify", ";checkFormat ;lint ;testCoverage")
+addCommandAlias(
+  "verify",
+  ";checkFormat ;scapegoatLint ;scalafixLint ;testCoverage"
+)
