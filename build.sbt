@@ -9,11 +9,18 @@ lazy val commonSettings = Seq(
   coverageMinimumBranchTotal := 100
 )
 
-lazy val root = (project in file("."))
-  .settings(commonSettings)
-  .settings(
-    name := "ci-seed"
-  )
+lazy val queue =
+  project
+    .in(file("queue"))
+    .settings(commonSettings)
+    .settings(
+      name := "queue",
+      libraryDependencies ++= Seq(
+        "org.typelevel" %% "cats-effect" % "3.3.12",
+        "org.scalameta" %% "munit" % "0.7.29" % Test,
+        "org.scalameta" %% "munit-scalacheck" % "0.7.29" % Test
+      )
+    )
 
 addCommandAlias("checkFormat", ";scalafmtSbtCheck ;scalafmtCheckAll")
 addCommandAlias("lint", ";compile ;scapegoat")
