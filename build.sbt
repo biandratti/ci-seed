@@ -21,7 +21,7 @@ lazy val queue =
     .settings(
       name := "queue",
       libraryDependencies ++= Seq(
-        "org.typelevel" %% "cats-effect" % "3.3.12",
+        "org.typelevel" %% "cats-effect" % "3.3.14",
         "org.scalameta" %% "munit" % "0.7.29" % Test,
         "org.scalameta" %% "munit-scalacheck" % "0.7.29" % Test
       )
