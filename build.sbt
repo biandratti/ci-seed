@@ -1,3 +1,5 @@
+Global / dependencyCheckFormats := Seq("HTML", "JSON")
+
 lazy val commonSettings = Seq(
   organization := "biandratti",
   scalaVersion := "2.13.8",
