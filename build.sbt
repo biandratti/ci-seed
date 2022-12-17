@@ -24,7 +24,7 @@ lazy val queue =
         "org.typelevel" %% "cats-effect" % "3.4.2",
         "org.scalameta" %% "munit" % "0.7.29" % Test,
         "org.scalameta" %% "munit-scalacheck" % "0.7.29" % Test,
-        "commons-beanutils" % "commons-beanutils" % "1.9.1"
+        "commons-beanutils" % "commons-beanutils" % "1.9.1" // with vulnerability
       )
     )
 
