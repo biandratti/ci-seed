@@ -1,5 +1,7 @@
 Global / dependencyCheckFormats := Seq("HTML", "JSON")
 
+scalaVersion := "2.13.8"
+
 lazy val commonSettings = Seq(
   organization := "biandratti",
   scalaVersion := "2.13.8",
@@ -25,8 +27,8 @@ lazy val queue =
       libraryDependencies ++= Seq(
         "org.typelevel" %% "cats-effect" % "3.4.3",
         "org.scalameta" %% "munit" % "0.7.29" % Test,
-        "org.scalameta" %% "munit-scalacheck" % "0.7.29" % Test,
-        "commons-beanutils" % "commons-beanutils" % "1.9.1" // with vulnerability
+        "org.scalameta" %% "munit-scalacheck" % "0.7.29" % Test
+        // "commons-beanutils" % "commons-beanutils" % "1.9.1" // with vulnerability
       )
     )
 
