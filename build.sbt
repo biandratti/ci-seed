@@ -41,5 +41,5 @@ addCommandAlias(
 )
 addCommandAlias(
   "verify",
-  ";checkFormat ;scapegoatLint ;scalafixLint ;testCoverage"
+  ";checkFormat ;scapegoatLint ;scalafixLint ;testCoverage; dependencyCheck"
 )
