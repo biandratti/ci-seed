@@ -1,4 +1,5 @@
-# ci-seed [![Build Status](https://github.com/biandratti/ci-seed/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/biandratti/ci-seed/actions/workflows/ci.yml) [![Coverage Status][coveralls-badge]][coveralls-status]
+# ci-seed [![Build Status](https://github.com/biandratti/ci-seed/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/biandratti/ci-seed/actions/workflows/ci.yml) 
+[![Coverage Status][coveralls-badge]][coveralls-status]
 
 ### Tasks
 | Task             | Description                                                                                                                                | Command                     |

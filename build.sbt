@@ -9,8 +9,8 @@ lazy val commonSettings = Seq(
   ThisBuild / scapegoatVersion := "1.4.17",
   wartremoverErrors ++= Warts.unsafe.diff(Seq(Wart.Any)),
   coverageFailOnMinimum := true,
-  coverageMinimumStmtTotal := 100,
-  coverageMinimumBranchTotal := 100,
+  coverageMinimumStmtTotal := 80,
+  coverageMinimumBranchTotal := 80,
   semanticdbEnabled := true,
   semanticdbVersion := scalafixSemanticdb.revision,
   scalacOptions ++= List(
@@ -35,7 +35,10 @@ lazy val queue =
 addCommandAlias("checkFormat", ";scalafmtSbtCheck ;scalafmtCheckAll")
 addCommandAlias("scapegoatLint", ";compile ;scapegoat")
 addCommandAlias("scalafixLint", ";compile ;scalafix")
-addCommandAlias("testCoverage", ";coverage ;test ;coverageAggregate")
+addCommandAlias(
+  "testCoverage",
+  ";coverage ;test ;coverageAggregate; coverageReport"
+)
 addCommandAlias(
   "verify",
   ";checkFormat ;scapegoatLint ;scalafixLint ;testCoverage"
