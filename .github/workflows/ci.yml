@@ -28,8 +28,9 @@ jobs:
       run: sbt scalafixLint
     - name: Scapegoat Lint
       run: sbt scapegoatLint
-    - name: Run tests
+    - name: Run tests with coverage Report
       run: sbt testCoverage
-      # Optional: This step uploads information to the GitHub dependency graph and unblocking Dependabot alerts for the repository
-      # - name: Upload dependency graph
-    #  uses: scalacenter/sbt-dependency-submission@ab086b50c947c9774b70f39fc7f6e20ca2706c91
+    - uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        fail_ci_if_error: true
