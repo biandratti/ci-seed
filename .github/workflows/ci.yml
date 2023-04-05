@@ -48,4 +48,4 @@ jobs:
         files: |
           **/target/test-reports/*.xml
     - name: Conclusion
-      run: echo "Conclusion is ${{ code-coverage-results.md }}"
+      run: awk '/version="1.0"/{ for (i=1;i<=NF;i++) { if ($i ~ "statement-rate=") { sub(/statement-rate=/, ""); gsub(/"/, ""); print $i } } }' target/scala-2.13/scoverage-report/scoverage.xml
