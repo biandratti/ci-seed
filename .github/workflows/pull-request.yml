@@ -10,6 +10,9 @@ concurrency:
   group: ci-${{ github.ref }}-1
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   call-build-and-lint:
     uses: ./.github/workflows/build-and-lint.yml
