@@ -2,13 +2,10 @@ name: Test & Coverage
 
 on:
   workflow_call:
-  secrets:
-    codecov-token:
-      description: The Webhook URL for the codecov-token channel
-      required: true
-
-permissions:
-  contents: read
+    secrets:
+      codecov-token:
+        description: The Webhook URL for the codecov-token channel
+        required: true
 
 jobs:
   build:
