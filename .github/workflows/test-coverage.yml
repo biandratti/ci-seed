@@ -1,7 +1,7 @@
 name: Test & Coverage
 
 on:
-  workflow_call
+  workflow_call:
   secrets:
     codecov-token:
       description: The Webhook URL for the codecov-token channel

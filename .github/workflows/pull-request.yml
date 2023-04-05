@@ -18,7 +18,8 @@ jobs:
     uses: ./.github/workflows/build-and-lint.yml
 
   call-unit-tests:
-    needs: call-build-and-lint
-    uses: ./.github/workflows/test.yml
+    needs:
+      - call-build-and-lint
+    uses: ./.github/workflows/test-coverage.yml
     secrets:
       codecov-token: ${{ secrets.CODECOV_TOKEN }}
