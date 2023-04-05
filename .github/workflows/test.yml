@@ -1,6 +1,11 @@
 name: Test & Coverage
 
-on: workflow_call
+on:
+  workflow_call
+  secrets:
+    codecov-token:
+      description: The Webhook URL for the codecov-token channel
+      required: true
 
 permissions:
   contents: read
@@ -17,5 +22,5 @@ jobs:
         run: sbt testCoverage
       - uses: codecov/codecov-action@v3
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          token: ${{ secrets.codecov-token }}
           fail_ci_if_error: true
