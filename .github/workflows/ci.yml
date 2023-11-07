@@ -13,14 +13,19 @@ concurrency:
 permissions:
   contents: read
 
+env:
+  JAVA_VERSION: 11
+
 jobs:
   format_compile_lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: VirtusLab/scala-cli-setup@v0.2.1
+      - uses: actions/checkout@v4
+      - name: Setup SBT
+        uses: coursier/setup-action@v1.3
         with:
-          jvm: adopt:11
+          jvm: temurin:${{env.JAVA_VERSION}}
+          apps: sbt
       - name: Check format
         run: sbt checkFormat
       - name: Scalafix Lint
@@ -30,13 +35,23 @@ jobs:
   unit_test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: VirtusLab/scala-cli-setup@v0.2.1
+      - uses: actions/checkout@v4
+      - name: Setup SBT
+        uses: coursier/setup-action@v1.3
         with:
-          jvm: adopt:11
+          jvm: temurin:${{env.JAVA_VERSION}}
+          apps: sbt
       - name: Run tests with coverage Report
         run: sbt testCoverage
       - uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v3
+        with:
+          fail-on-severity: moderate
