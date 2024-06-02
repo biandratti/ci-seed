@@ -1,7 +1,7 @@
 addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.5.2")
 
 addSbtPlugin("org.wartremover" % "sbt-wartremover" % "3.1.6")
-addSbtPlugin("com.sksamuel.scapegoat" %% "sbt-scapegoat" % "1.2.3")
+addSbtPlugin("com.sksamuel.scapegoat" %% "sbt-scapegoat" % "1.2.4")
 
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "2.0.10")
 
