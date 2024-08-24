@@ -26,7 +26,7 @@ lazy val queue =
       name := "queue",
       libraryDependencies ++= Seq(
         "org.typelevel" %% "cats-effect" % "3.5.4",
-        "org.scalameta" %% "munit" % "1.0.0" % Test,
+        "org.scalameta" %% "munit" % "1.0.1" % Test,
         "org.scalameta" %% "munit-scalacheck" % "1.0.0" % Test
         // "commons-beanutils" % "commons-beanutils" % "1.9.1" // with vulnerability
       )
