@@ -4,7 +4,7 @@ scalaVersion := "2.13.8"
 
 lazy val commonSettings = Seq(
   organization := "biandratti",
-  scalaVersion := "2.13.10",
+  scalaVersion := "2.13.15",
   scalacOptions += "-Xsource:3",
   ThisBuild / scapegoatVersion := "1.4.17",
   wartremoverErrors ++= Warts.unsafe.diff(Seq(Wart.Any)),
